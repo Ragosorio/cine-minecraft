@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>invitación</title>
+    <style>
+      @font-face {
+        font-family: "Minecraft";
+        src: url("./Minecraft.ttf") format("truetype");
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100dvh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+        overflow: hidden;
+        font-family: "Minecraft", sans-serif;
+        background-image: url("fondo.png");
+        background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center center; /* Centra la imagen */
+      }
+      .p-container {
+        font-size: 8px;
+        z-index: 1;
+        position: relative;
+        h1 {
+          font-size: 2rem;
+          text-wrap: pretty;
+          text-align: center;
+          color: white; /* Color del texto */
+          text-shadow: 0px 0px 0 black, 1px 0px 0 black, -3px 2px 0 black,
+          0px 0px 0 black;
+          font-weight: bold; /* Hace que el texto sea más grueso */
+        }
+      }
+      .telon {
+        width: 100%;
+        height: 100dvh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        z-index: 2;
+      }
+      .left,
+      .right {
+        height: 100dvh;
+        width: 50%;
+        transition: transform 0.8s ease-in-out;
+        background-image: url("./teatro.png");
+        background-size: 200% 100%;
+      }
+      .left {
+        position: absolute;
+        left: 0;
+        background-position: left center;
+        transform-origin: left center;
+      }
+      .right {
+        position: absolute;
+        right: 0;
+        background-position: right center;
+        transform-origin: right center;
+      }
+      .abrir-left {
+        transform: translateX(-100%);
+      }
+      .abrir-right {
+        transform: translateX(100%);
+      }
+      .cerrar {
+        transform: translateX(0);
+      }
+    </style>
+    <script type="module">
+      document.addEventListener("click", () => {
+        const left = document.querySelector(".left");
+        const right = document.querySelector(".right");
+
+        left.classList.toggle("abrir-left");
+        left.classList.toggle("cerrar");
+
+        right.classList.toggle("abrir-right");
+        right.classList.toggle("cerrar");
+      });
+    </script>
+  </head>
+  <body>
+    <div class="p-container">
+      <h1>
+        ¿Quieres ir a ver <br />
+        Minecraft conmigo? <br />
+        👀💜
+      </h1>
+    </div>
+    <div class="telon">
+      <div class="left cerrar"></div>
+      <div class="right cerrar"></div>
+    </div>
+  </body>
+</html>
